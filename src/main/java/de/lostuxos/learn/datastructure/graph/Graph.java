@@ -9,12 +9,10 @@ public class Graph {
     private Map<Vertex, List<Edge>> adjVertices = new HashMap<>();
 
     public void addVertex(String label) {
-        adjVertices.putIfAbsent(new Vertex(label), new ArrayList<Edge>());
+        adjVertices.putIfAbsent(new Vertex(label), new ArrayList<>());
     }
 
     public void removeVertex(String label) {
-        Vertex v = new Vertex(label);
-        adjVertices.values().stream().forEach(e -> e.remove(v));
         adjVertices.remove(new Vertex(label));
     }
 
@@ -36,4 +34,6 @@ public class Graph {
     public List<Edge> getEdges(Vertex label) {
         return adjVertices.get(label);
     }
+
+
 }
